@@ -36,29 +36,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const team = [
-  { name: "Daniel Hayes", role: "Founder & CEO", img: team1 },
-  { name: "Marcus Chen", role: "Co-founder & CTO", img: team2 },
-  { name: "Sofia Almeida", role: "Head of Design", img: team3 },
-  { name: "Jonas Weber", role: "Lead AI Researcher", img: team4 },
-  { name: "Aiko Tanaka", role: "Head of Growth", img: team5 },
-];
-
-const agents = [
-  { icon: <Search className="h-5 w-5" />, title: "Research Agent", description: "Scans markets, competitors, and audiences in real time." },
-  { icon: <PenTool className="h-5 w-5" />, title: "Creative Agent", description: "Generates on-brand copy, visuals, and campaign concepts." },
-  { icon: <Megaphone className="h-5 w-5" />, title: "Ads Agent", description: "Launches and rebalances paid campaigns across channels." },
-  { icon: <Globe className="h-5 w-5" />, title: "SEO Agent", description: "Plans, writes, and ranks content for compounding growth." },
-  { icon: <LineChart className="h-5 w-5" />, title: "Analytics Agent", description: "Turns raw data into clear, actionable next steps." },
-  { icon: <Workflow className="h-5 w-5" />, title: "Orchestrator", description: "Coordinates every agent so work moves without friction." },
-];
-
-const principles = [
-  { icon: <Bot className="h-5 w-5" />, title: "Multi-agent OS", description: "A coordinated team of specialists, not a single chatbot." },
-  { icon: <Sparkles className="h-5 w-5" />, title: "Continuous learning", description: "Every campaign becomes intelligence that improves the next." },
-  { icon: <ShieldCheck className="h-5 w-5" />, title: "Human in control", description: "Approvals, brand rules, and budget guardrails by default." },
-];
-
 function Index() {
   const { t } = useApp();
 
