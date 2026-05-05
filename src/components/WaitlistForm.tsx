@@ -1,7 +1,9 @@
 import { useState, type FormEvent } from "react";
 import { ArrowRight, Check } from "lucide-react";
+import { useApp } from "@/contexts/AppContext";
 
 export function WaitlistForm() {
+  const { t } = useApp();
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
@@ -23,7 +25,7 @@ export function WaitlistForm() {
         maxLength={255}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="Your Email"
+        placeholder={t("emailPlaceholder")}
         aria-label="Email address"
         className="flex-1 bg-transparent px-5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground/70 focus:outline-none"
       />
@@ -34,11 +36,11 @@ export function WaitlistForm() {
       >
         {submitted ? (
           <>
-            <Check className="h-4 w-4" /> You're in
+            <Check className="h-4 w-4" /> {t("youreIn")}
           </>
         ) : (
           <>
-            Join Waitlist
+            {t("joinWaitlist")}
             <ArrowRight className="h-4 w-4" />
           </>
         )}
