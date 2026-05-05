@@ -28,6 +28,9 @@ import avatar3 from "@/assets/avatar3.jpg";
 import { WaitlistForm } from "@/components/WaitlistForm";
 import { HighlightCard } from "@/components/HighlightCard";
 import { FloatingIcon } from "@/components/FloatingIcon";
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { useApp } from "@/contexts/AppContext";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -57,12 +60,37 @@ const principles = [
 ];
 
 function Index() {
+  const { t } = useApp();
+
+  const team = [
+    { name: "Daniel Hayes", role: "Founder & CEO", img: team1 },
+    { name: "Marcus Chen", role: "Co-founder & CTO", img: team2 },
+    { name: "Sofia Almeida", role: "Head of Design", img: team3 },
+    { name: "Jonas Weber", role: "Lead AI Researcher", img: team4 },
+    { name: "Aiko Tanaka", role: "Head of Growth", img: team5 },
+  ];
+
+  const agents = [
+    { icon: <Search className="h-5 w-5" />, title: t("aResearchT"), description: t("aResearchD") },
+    { icon: <PenTool className="h-5 w-5" />, title: t("aCreativeT"), description: t("aCreativeD") },
+    { icon: <Megaphone className="h-5 w-5" />, title: t("aAdsT"), description: t("aAdsD") },
+    { icon: <Globe className="h-5 w-5" />, title: t("aSeoT"), description: t("aSeoD") },
+    { icon: <LineChart className="h-5 w-5" />, title: t("aAnalyticsT"), description: t("aAnalyticsD") },
+    { icon: <Workflow className="h-5 w-5" />, title: t("aOrchestratorT"), description: t("aOrchestratorD") },
+  ];
+
+  const principles = [
+    { icon: <Bot className="h-5 w-5" />, title: t("pMultiT"), description: t("pMultiD") },
+    { icon: <Sparkles className="h-5 w-5" />, title: t("pLearnT"), description: t("pLearnD") },
+    { icon: <ShieldCheck className="h-5 w-5" />, title: t("pHumanT"), description: t("pHumanD") },
+  ];
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
       {/* Hexagonal molecular backdrop */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[1100px] bg-cover bg-center opacity-25"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1400px] bg-cover bg-center opacity-60 mix-blend-multiply dark:opacity-30 dark:mix-blend-screen"
         style={{ backgroundImage: `url(${hexBg})` }}
       />
       <div
@@ -72,7 +100,7 @@ function Index() {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-[800px] h-[400px] bg-gradient-to-b from-transparent to-background"
+        className="pointer-events-none absolute inset-x-0 top-[1100px] h-[400px] bg-gradient-to-b from-transparent to-background"
       />
 
       {/* Top nav */}
@@ -80,11 +108,13 @@ function Index() {
         <a href="/" className="flex items-center gap-2">
           <img src={logo} alt="Pluto AI" className="h-8 w-auto" />
         </a>
-        <nav className="hidden items-center gap-7 text-sm font-medium text-muted-foreground sm:flex">
-          <a href="#agents" className="transition hover:text-foreground">Agents</a>
-          <a href="#mission" className="transition hover:text-foreground">Mission</a>
-          <a href="#team" className="transition hover:text-foreground">Team</a>
-          <span className="text-xs text-muted-foreground/70">Whitepaper v1.0</span>
+        <nav className="flex items-center gap-3 sm:gap-5 text-sm font-medium text-muted-foreground">
+          <a href="#agents" className="hidden transition hover:text-foreground sm:inline">{t("navAgents")}</a>
+          <a href="#mission" className="hidden transition hover:text-foreground sm:inline">{t("navMission")}</a>
+          <a href="#team" className="hidden transition hover:text-foreground sm:inline">{t("navTeam")}</a>
+          <span className="hidden text-xs text-muted-foreground/70 lg:inline">{t("whitepaper")}</span>
+          <LanguageToggle />
+          <ThemeToggle />
         </nav>
       </header>
 
@@ -101,21 +131,20 @@ function Index() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success/60" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
           </span>
-          Beta goes live soon
+          {t("beta")}
         </div>
 
         <h1 className="text-balance text-5xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-6xl md:text-7xl">
-          Early Access to the
+          {t("heroTitle1")}
           <br />
-          Future of AI{" "}
+          {t("heroTitle2")}{" "}
           <span className="italic font-normal" style={{ fontFamily: "var(--font-serif)" }}>
-            Growth
+            {t("heroAccent")}
           </span>
         </h1>
 
         <p className="mx-auto mt-6 max-w-lg text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-          A multi-agent growth operating system that researches, creates, launches, and optimizes
-          campaigns — all in one place.
+          {t("heroSub")}
         </p>
 
         <div className="mt-10">
@@ -135,7 +164,7 @@ function Index() {
             ))}
           </div>
           <p className="text-sm font-medium text-foreground/80">
-            Join <span className="font-semibold text-foreground">8,258+</span> SaaS &amp; AI founders
+            {t("joinedBy")} <span className="font-semibold text-foreground">8,258+</span> {t("joinedSuffix")}
           </p>
         </div>
 
@@ -143,18 +172,18 @@ function Index() {
         <div className="mx-auto mt-24 grid max-w-5xl grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-3">
           <HighlightCard
             icon={<Zap className="h-5 w-5" />}
-            title="Smart Automation"
-            description="Specialized agents launch and optimize campaigns end-to-end."
+            title={t("hSmartTitle")}
+            description={t("hSmartDesc")}
           />
           <HighlightCard
             icon={<LineChart className="h-5 w-5" />}
-            title="AI Insights"
-            description="Unlock data-driven clarity from every channel and touchpoint."
+            title={t("hInsightsTitle")}
+            description={t("hInsightsDesc")}
           />
           <HighlightCard
             icon={<Users className="h-5 w-5" />}
-            title="Multi-Persona"
-            description="Pressure-test ideas with simulated buyers before you spend."
+            title={t("hMultiTitle")}
+            description={t("hMultiDesc")}
           />
         </div>
       </section>
@@ -163,17 +192,16 @@ function Index() {
       <section id="agents" className="relative z-10 mx-auto max-w-6xl px-6 pb-24">
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center rounded-full border border-border/60 bg-card/70 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur-sm">
-            The Agent Stack
+            {t("agentStack")}
           </span>
           <h2 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            One platform.{" "}
+            {t("agentTitle1")}{" "}
             <span className="italic font-normal" style={{ fontFamily: "var(--font-serif)" }}>
-              Six specialists.
+              {t("agentTitle2")}
             </span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-            Each agent owns a domain and shares context with the others — so research, creative,
-            ads, SEO, and analytics move as one team.
+            {t("agentSub")}
           </p>
         </div>
         <div className="mt-20 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
@@ -186,46 +214,40 @@ function Index() {
       {/* MISSION */}
       <section id="mission" className="relative z-10 mx-auto max-w-3xl px-6 pb-24">
         <div className="relative pt-8">
-          <div className="absolute right-8 top-0">
-            <FloatingIcon className="h-14 w-14">
-              <Brain className="h-6 w-6" />
-            </FloatingIcon>
-          </div>
           <div className="rounded-3xl border border-border/60 bg-card/80 p-8 shadow-[var(--shadow-card-lg)] backdrop-blur-md sm:p-12">
             <span className="inline-flex items-center rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">
-              Mission
+              {t("missionTag")}
             </span>
 
             <h2 className="mt-6 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              The New Era of AI-Powered Growth
+              {t("missionTitle")}
             </h2>
 
             <div className="mt-5 space-y-4 text-base leading-relaxed text-muted-foreground">
-              <p>
-                Pluto AI puts a coordinated team of agents at the center of your workflow — helping
-                you automate repetitive tasks, generate instant insights, and execute campaigns at
-                the speed of thought.
-              </p>
-              <p>
-                With faster decisions and seamless integration across research, content, ads, and
-                analytics, you scale your business without limits.
-              </p>
+              <p>{t("missionP1")}</p>
+              <p>{t("missionP2")}</p>
             </div>
 
             <dl className="mt-8 space-y-2 text-sm text-foreground/90">
               <div className="flex gap-2">
-                <dt className="font-semibold">Launch Date:</dt>
-                <dd className="text-muted-foreground">November 2026</dd>
+                <dt className="font-semibold">{t("launchDate")}</dt>
+                <dd className="text-muted-foreground">{t("launchDateV")}</dd>
               </div>
               <div className="flex gap-2">
-                <dt className="font-semibold">Key Benefit:</dt>
-                <dd className="text-muted-foreground">A growth team in a box, day one</dd>
+                <dt className="font-semibold">{t("keyBenefit")}</dt>
+                <dd className="text-muted-foreground">{t("keyBenefitV")}</dd>
               </div>
               <div className="flex gap-2">
-                <dt className="font-semibold">Built For:</dt>
-                <dd className="text-muted-foreground">Founders, agencies &amp; growth teams</dd>
+                <dt className="font-semibold">{t("builtFor")}</dt>
+                <dd className="text-muted-foreground">{t("builtForV")}</dd>
               </div>
             </dl>
+          </div>
+          {/* Floating icon — sits in front of the card */}
+          <div className="pointer-events-none absolute right-6 top-0 z-20 sm:right-8">
+            <FloatingIcon className="h-14 w-14">
+              <Brain className="h-6 w-6" />
+            </FloatingIcon>
           </div>
         </div>
       </section>
@@ -234,10 +256,10 @@ function Index() {
       <section className="relative z-10 mx-auto max-w-5xl px-6 pb-24">
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <span className="inline-flex items-center rounded-full border border-border/60 bg-card/70 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur-sm">
-            How we build
+            {t("howWeBuild")}
           </span>
           <h2 className="mt-5 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            Principles behind the engine
+            {t("principlesTitle")}
           </h2>
         </div>
         <div className="grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-3">
@@ -251,17 +273,16 @@ function Index() {
       <section id="team" className="relative z-10 mx-auto max-w-6xl px-6 pb-28">
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center rounded-full border border-border/60 bg-card/70 px-3 py-1 text-xs font-medium text-muted-foreground backdrop-blur-sm">
-            Team
+            {t("teamTag")}
           </span>
           <h2 className="mt-5 text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            Five operators building{" "}
+            {t("teamTitle1")}{" "}
             <span className="italic font-normal" style={{ fontFamily: "var(--font-serif)" }}>
-              Pluto AI
+              {t("teamTitle2")}
             </span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-            A small, senior team from AI research, design, and growth — assembling the operating
-            system we always wanted.
+            {t("teamSub")}
           </p>
         </div>
 
@@ -296,16 +317,16 @@ function Index() {
           </FloatingIcon>
         </div>
         <h2 className="text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Be first when Pluto opens.
+          {t("ctaTitle")}
         </h2>
         <p className="mx-auto mt-4 max-w-md text-base text-muted-foreground">
-          Founding members get early access, lifetime pricing, and a direct line to the team.
+          {t("ctaSub")}
         </p>
         <div className="mt-8">
           <WaitlistForm />
         </div>
         <div className="mt-6 inline-flex items-center gap-2 text-xs text-muted-foreground">
-          <Target className="h-3.5 w-3.5" /> Limited founding seats — closing at launch.
+          <Target className="h-3.5 w-3.5" /> {t("ctaLimited")}
         </div>
       </section>
 
@@ -316,7 +337,7 @@ function Index() {
             <img src={logo} alt="Pluto AI" className="h-6 w-auto" />
           </div>
           <p className="text-xs text-muted-foreground">
-            © 2026 Pluto AI · Building the future growth engine for everyone.
+            {t("footer")}
           </p>
         </div>
       </footer>
