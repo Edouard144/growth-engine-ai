@@ -63,20 +63,30 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --background: oklch(0.985 0.003 80);
+  --foreground: oklch(0.18 0.01 260);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --primary: oklch(0.18 0.005 260);
+  --primary-foreground: oklch(0.985 0.003 80);
+  --secondary: oklch(0.96 0.005 80);
+  --secondary-foreground: oklch(0.18 0.005 260);
+  --muted: oklch(0.95 0.004 80);
+  --muted-foreground: oklch(0.5 0.01 260);
+  --accent: oklch(0.95 0.004 80);
+  --accent-foreground: oklch(0.18 0.005 260);
+
+  --success: oklch(0.72 0.18 145);
+
+  --shadow-float: 0 20px 50px -12px oklch(0.18 0.005 260 / 0.18), 0 8px 20px -8px oklch(0.18 0.005 260 / 0.12);
+  --shadow-card: 0 1px 2px oklch(0.18 0.005 260 / 0.04), 0 8px 24px -8px oklch(0.18 0.005 260 / 0.08);
+  --shadow-pill: 0 10px 30px -8px oklch(0.18 0.005 260 / 0.35);
+
+  --gradient-page: radial-gradient(ellipse 80% 50% at 50% 0%, oklch(0.97 0.005 80 / 0.8), transparent 70%);
+
+  --font-serif: "Instrument Serif", "Cormorant Garamond", ui-serif, Georgia, serif;
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.929 0.013 255.508);
@@ -95,6 +105,20 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+@theme inline {
+  --color-success: var(--success);
+  --shadow-float: var(--shadow-float);
+  --shadow-card: var(--shadow-card);
+  --shadow-pill: var(--shadow-pill);
+}
+
+@layer base {
+  html {
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
 }
 
 .dark {
