@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Sparkles,
   Brain,
@@ -16,6 +16,7 @@ import {
   Rocket,
 } from "lucide-react";
 import logo from "@/assets/pluto-logo.png";
+import image from "@/assets/image.png";
 import hexBg from "@/assets/hex-bg.jpg";
 import team1 from "@/assets/team1.jpg";
 import team2 from "@/assets/team2.jpg";
@@ -34,17 +35,20 @@ import { useApp } from "@/contexts/AppContext";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  validateSearch: (search: Record<string, unknown>) => ({
+    verified: (search.verified as string) || undefined,
+  }),
 });
 
 function Index() {
   const { t } = useApp();
 
   const team = [
-    { name: "Daniel Hayes", role: "Founder & CEO", img: team1 },
-    { name: "Marcus Chen", role: "Co-founder & CTO", img: team2 },
-    { name: "Sofia Almeida", role: "Head of Design", img: team3 },
-    { name: "Jonas Weber", role: "Lead AI Researcher", img: team4 },
-    { name: "Aiko Tanaka", role: "Head of Growth", img: team5 },
+    { name: "Sripadh Sujith", role: "Founder & CEO", img: team1 },
+    { name: "Edouard Cheev", role: "Co-founder & CTO", img: team2 },
+    { name: "Subrahmanyam csm", role: "Head of Design", img: team3 },
+    { name: "Ginga", role: "Lead AI Researcher", img: team4 },
+    { name: "Ruzindana Tehila", role: "Head of Growth", img: team5 },
   ];
 
   const agents = [
@@ -52,8 +56,16 @@ function Index() {
     { icon: <PenTool className="h-5 w-5" />, title: t("aCreativeT"), description: t("aCreativeD") },
     { icon: <Megaphone className="h-5 w-5" />, title: t("aAdsT"), description: t("aAdsD") },
     { icon: <Globe className="h-5 w-5" />, title: t("aSeoT"), description: t("aSeoD") },
-    { icon: <LineChart className="h-5 w-5" />, title: t("aAnalyticsT"), description: t("aAnalyticsD") },
-    { icon: <Workflow className="h-5 w-5" />, title: t("aOrchestratorT"), description: t("aOrchestratorD") },
+    {
+      icon: <LineChart className="h-5 w-5" />,
+      title: t("aAnalyticsT"),
+      description: t("aAnalyticsD"),
+    },
+    {
+      icon: <Workflow className="h-5 w-5" />,
+      title: t("aOrchestratorT"),
+      description: t("aOrchestratorD"),
+    },
   ];
 
   const principles = [
@@ -70,10 +82,22 @@ function Index() {
         className="pointer-events-none absolute inset-x-0 top-0 h-[1400px] bg-cover bg-center opacity-60 mix-blend-multiply dark:opacity-30 dark:mix-blend-screen"
         style={{ backgroundImage: `url(${hexBg})` }}
       />
+      {/* Pluto AI Logo Backdrop */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 flex h-[600px] items-center justify-center opacity-20 mix-blend-multiply dark:opacity-10 dark:mix-blend-screen"
+      >
+        <img src={logo} alt="" className="h-96 w-auto" />
+      </div>
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[1100px]"
         style={{ background: "var(--gradient-page)" }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1100px] dark:block hidden"
+        style={{ background: "var(--gradient-page-dark)" }}
       />
       <div
         aria-hidden
@@ -86,10 +110,18 @@ function Index() {
           <img src={logo} alt="Pluto AI" className="h-8 w-auto" />
         </a>
         <nav className="flex items-center gap-3 sm:gap-5 text-sm font-medium text-muted-foreground">
-          <a href="#agents" className="hidden transition hover:text-foreground sm:inline">{t("navAgents")}</a>
-          <a href="#mission" className="hidden transition hover:text-foreground sm:inline">{t("navMission")}</a>
-          <a href="#team" className="hidden transition hover:text-foreground sm:inline">{t("navTeam")}</a>
-          <span className="hidden text-xs text-muted-foreground/70 lg:inline">{t("whitepaper")}</span>
+          <a href="#agents" className="hidden transition hover:text-foreground sm:inline">
+            {t("navAgents")}
+          </a>
+          <a href="#mission" className="hidden transition hover:text-foreground sm:inline">
+            {t("navMission")}
+          </a>
+          <a href="#team" className="hidden transition hover:text-foreground sm:inline">
+            {t("navTeam")}
+          </a>
+          <span className="hidden text-xs text-muted-foreground/70 lg:inline">
+            {t("whitepaper")}
+          </span>
           <LanguageToggle />
           <ThemeToggle />
         </nav>
@@ -98,9 +130,9 @@ function Index() {
       {/* HERO */}
       <section className="relative z-10 mx-auto max-w-3xl px-6 pb-24 pt-10 text-center sm:pt-16">
         <div className="mb-6 flex justify-center">
-          <FloatingIcon className="h-14 w-14">
-            <Sparkles className="h-6 w-6" />
-          </FloatingIcon>
+          <div className="h-14 w-14 rounded-full bg-primary text-primary-foreground shadow-[var(--shadow-pill)] ring-4 ring-background flex items-center justify-center">
+            <img src={image} alt="Pluto Planet" className="h-8 w-8 rounded-full object-cover" />
+          </div>
         </div>
 
         <div className="mb-5 inline-flex items-center gap-2 text-xs font-medium text-muted-foreground">
@@ -141,7 +173,8 @@ function Index() {
             ))}
           </div>
           <p className="text-sm font-medium text-foreground/80">
-            {t("joinedBy")} <span className="font-semibold text-foreground">8,258+</span> {t("joinedSuffix")}
+            {t("joinedBy")} <span className="font-semibold text-foreground">1000+</span>{" "}
+            {t("joinedSuffix")}
           </p>
         </div>
 
@@ -183,7 +216,12 @@ function Index() {
         </div>
         <div className="mt-20 grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
           {agents.map((a) => (
-            <HighlightCard key={a.title} icon={a.icon} title={a.title} description={a.description} />
+            <HighlightCard
+              key={a.title}
+              icon={a.icon}
+              title={a.title}
+              description={a.description}
+            />
           ))}
         </div>
       </section>
@@ -241,7 +279,12 @@ function Index() {
         </div>
         <div className="grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-3">
           {principles.map((p) => (
-            <HighlightCard key={p.title} icon={p.icon} title={p.title} description={p.description} />
+            <HighlightCard
+              key={p.title}
+              icon={p.icon}
+              title={p.title}
+              description={p.description}
+            />
           ))}
         </div>
       </section>
@@ -296,9 +339,7 @@ function Index() {
         <h2 className="text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
           {t("ctaTitle")}
         </h2>
-        <p className="mx-auto mt-4 max-w-md text-base text-muted-foreground">
-          {t("ctaSub")}
-        </p>
+        <p className="mx-auto mt-4 max-w-md text-base text-muted-foreground">{t("ctaSub")}</p>
         <div className="mt-8">
           <WaitlistForm />
         </div>
@@ -313,9 +354,7 @@ function Index() {
           <div className="flex items-center gap-2">
             <img src={logo} alt="Pluto AI" className="h-6 w-auto" />
           </div>
-          <p className="text-xs text-muted-foreground">
-            {t("footer")}
-          </p>
+          <p className="text-xs text-muted-foreground">{t("footer")}</p>
         </div>
       </footer>
     </main>

@@ -17,7 +17,9 @@ export function HighlightCard({ icon, title, description }: HighlightCardProps) 
       </div>
       <div className="h-full rounded-3xl border border-border/40 bg-card/90 px-6 pb-8 pt-12 text-center shadow-[var(--shadow-card-lg)] backdrop-blur-md transition-transform duration-300 hover:-translate-y-1">
         <h3 className="text-lg font-semibold tracking-tight text-foreground">{title}</h3>
-        <p className="mx-auto mt-3 max-w-[18rem] text-sm leading-relaxed text-muted-foreground">{description}</p>
+        <p className="mx-auto mt-3 max-w-[18rem] text-sm leading-relaxed text-muted-foreground">
+          {description}
+        </p>
       </div>
     </div>
   );

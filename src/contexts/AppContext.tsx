@@ -10,6 +10,8 @@ interface AppContextValue {
   lang: Lang;
   setLang: (l: Lang) => void;
   t: (k: TranslationKey) => string;
+  joinedWaitlist: boolean;
+  setJoinedWaitlist: (joined: boolean) => void;
 }
 
 const AppContext = createContext<AppContextValue | null>(null);
@@ -17,24 +19,38 @@ const AppContext = createContext<AppContextValue | null>(null);
 export function AppProvider({ children }: { children: ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("light");
   const [lang, setLangState] = useState<Lang>("en");
+  const [joinedWaitlist, setJoinedWaitlistState] = useState(false);
 
   useEffect(() => {
-    const storedTheme = (typeof window !== "undefined" && localStorage.getItem("pluto-theme")) as Theme | null;
-    const storedLang = (typeof window !== "undefined" && localStorage.getItem("pluto-lang")) as Lang | null;
+    const storedTheme = (typeof window !== "undefined" &&
+      localStorage.getItem("pluto-theme")) as Theme | null;
+    const storedLang = (typeof window !== "undefined" &&
+      localStorage.getItem("pluto-lang")) as Lang | null;
+    const storedJoined =
+      (typeof window !== "undefined" && localStorage.getItem("pluto-joined")) === "true";
     if (storedTheme === "dark" || storedTheme === "light") setThemeState(storedTheme);
     if (storedLang === "en" || storedLang === "fr" || storedLang === "hi") setLangState(storedLang);
+    setJoinedWaitlistState(storedJoined);
   }, []);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
     document.documentElement.classList.toggle("dark", theme === "dark");
-    try { localStorage.setItem("pluto-theme", theme); } catch { /* ignore */ }
+    try {
+      localStorage.setItem("pluto-theme", theme);
+    } catch {
+      /* ignore */
+    }
   }, [theme]);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
     document.documentElement.lang = lang;
-    try { localStorage.setItem("pluto-lang", lang); } catch { /* ignore */ }
+    try {
+      localStorage.setItem("pluto-lang", lang);
+    } catch {
+      /* ignore */
+    }
   }, [lang]);
 
   const value: AppContextValue = {
@@ -44,6 +60,13 @@ export function AppProvider({ children }: { children: ReactNode }) {
     lang,
     setLang: setLangState,
     t: (k) => translations[lang][k] ?? translations.en[k] ?? k,
+    joinedWaitlist,
+    setJoinedWaitlist: (joined: boolean) => {
+      setJoinedWaitlistState(joined);
+      if (typeof window !== "undefined") {
+        localStorage.setItem("pluto-joined", joined.toString());
+      }
+    },
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

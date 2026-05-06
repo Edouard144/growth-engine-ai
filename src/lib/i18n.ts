@@ -5,11 +5,12 @@ const en = {
   navMission: "Mission",
   navTeam: "Team",
   whitepaper: "Whitepaper v1.0",
-  beta: "Beta goes live soon",
+  beta: "Pluto AI goes live soon",
   heroTitle1: "Early Access to the",
   heroTitle2: "Future of AI",
   heroAccent: "Growth",
-  heroSub: "A multi-agent growth operating system that researches, creates, launches, and optimizes campaigns — all in one place.",
+  heroSub:
+    "A multi-agent growth operating system that researches, creates, launches, and optimizes campaigns — all in one place.",
   joinedBy: "Join",
   joinedSuffix: "SaaS & AI founders",
   emailPlaceholder: "Your Email",
@@ -26,7 +27,8 @@ const en = {
   agentStack: "The Agent Stack",
   agentTitle1: "One platform.",
   agentTitle2: "Six specialists.",
-  agentSub: "Each agent owns a domain and shares context with the others — so research, creative, ads, SEO, and analytics move as one team.",
+  agentSub:
+    "Each agent owns a domain and shares context with the others — so research, creative, ads, SEO, and analytics move as one team.",
   aResearchT: "Research Agent",
   aResearchD: "Scans markets, competitors, and audiences in real time.",
   aCreativeT: "Creative Agent",
@@ -42,8 +44,10 @@ const en = {
 
   missionTag: "Mission",
   missionTitle: "The New Era of AI-Powered Growth",
-  missionP1: "Pluto AI puts a coordinated team of agents at the center of your workflow — helping you automate repetitive tasks, generate instant insights, and execute campaigns at the speed of thought.",
-  missionP2: "With faster decisions and seamless integration across research, content, ads, and analytics, you scale your business without limits.",
+  missionP1:
+    "Pluto AI puts a coordinated team of agents at the center of your workflow — helping you automate repetitive tasks, generate instant insights, and execute campaigns at the speed of thought.",
+  missionP2:
+    "With faster decisions and seamless integration across research, content, ads, and analytics, you scale your business without limits.",
   launchDate: "Launch Date:",
   launchDateV: "November 2026",
   keyBenefit: "Key Benefit:",
@@ -63,7 +67,8 @@ const en = {
   teamTag: "Team",
   teamTitle1: "Five operators building",
   teamTitle2: "Pluto AI",
-  teamSub: "A small, senior team from AI research, design, and growth — assembling the operating system we always wanted.",
+  teamSub:
+    "A small, senior team from AI research, design, and growth — assembling the operating system we always wanted.",
 
   ctaTitle: "Be first when Pluto opens.",
   ctaSub: "Founding members get early access, lifetime pricing, and a direct line to the team.",
@@ -82,7 +87,8 @@ const fr: Record<TranslationKey, string> = {
   heroTitle1: "Accès anticipé à",
   heroTitle2: "l'avenir de l'IA",
   heroAccent: "Croissance",
-  heroSub: "Un système d'exploitation de croissance multi-agents qui recherche, crée, lance et optimise vos campagnes — au même endroit.",
+  heroSub:
+    "Un système d'exploitation de croissance multi-agents qui recherche, crée, lance et optimise vos campagnes — au même endroit.",
   joinedBy: "Rejoignez",
   joinedSuffix: "fondateurs SaaS et IA",
   emailPlaceholder: "Votre e-mail",
@@ -99,7 +105,8 @@ const fr: Record<TranslationKey, string> = {
   agentStack: "La pile d'agents",
   agentTitle1: "Une plateforme.",
   agentTitle2: "Six spécialistes.",
-  agentSub: "Chaque agent maîtrise son domaine et partage le contexte — recherche, créa, ads, SEO et analytique avancent comme une seule équipe.",
+  agentSub:
+    "Chaque agent maîtrise son domaine et partage le contexte — recherche, créa, ads, SEO et analytique avancent comme une seule équipe.",
   aResearchT: "Agent Recherche",
   aResearchD: "Analyse les marchés, concurrents et audiences en temps réel.",
   aCreativeT: "Agent Créatif",
@@ -115,8 +122,10 @@ const fr: Record<TranslationKey, string> = {
 
   missionTag: "Mission",
   missionTitle: "La nouvelle ère de la croissance pilotée par l'IA",
-  missionP1: "Pluto AI place une équipe d'agents coordonnés au cœur de votre workflow — pour automatiser les tâches répétitives, générer des insights instantanés et exécuter des campagnes à la vitesse de la pensée.",
-  missionP2: "Avec des décisions plus rapides et une intégration fluide entre recherche, contenu, ads et analytique, vous faites croître votre entreprise sans limites.",
+  missionP1:
+    "Pluto AI place une équipe d'agents coordonnés au cœur de votre workflow — pour automatiser les tâches répétitives, générer des insights instantanés et exécuter des campagnes à la vitesse de la pensée.",
+  missionP2:
+    "Avec des décisions plus rapides et une intégration fluide entre recherche, contenu, ads et analytique, vous faites croître votre entreprise sans limites.",
   launchDate: "Date de lancement :",
   launchDateV: "Novembre 2026",
   keyBenefit: "Bénéfice clé :",
@@ -136,10 +145,12 @@ const fr: Record<TranslationKey, string> = {
   teamTag: "Équipe",
   teamTitle1: "Cinq opérateurs construisent",
   teamTitle2: "Pluto AI",
-  teamSub: "Une petite équipe senior issue de la recherche IA, du design et de la croissance — assemblant l'OS dont nous avons toujours rêvé.",
+  teamSub:
+    "Une petite équipe senior issue de la recherche IA, du design et de la croissance — assemblant l'OS dont nous avons toujours rêvé.",
 
   ctaTitle: "Soyez parmi les premiers à entrer.",
-  ctaSub: "Les membres fondateurs bénéficient d'un accès anticipé, d'un tarif à vie et d'une ligne directe avec l'équipe.",
+  ctaSub:
+    "Les membres fondateurs bénéficient d'un accès anticipé, d'un tarif à vie et d'une ligne directe avec l'équipe.",
   ctaLimited: "Places de fondateurs limitées — clôture au lancement.",
   footer: "© 2026 Pluto AI · Construire le moteur de croissance du futur pour tous.",
 };
@@ -149,11 +160,12 @@ const hi: Record<TranslationKey, string> = {
   navMission: "मिशन",
   navTeam: "टीम",
   whitepaper: "व्हाइटपेपर v1.0",
-  beta: "बीटा जल्द ही लाइव होगा",
+  beta: "प्लूटो एआई जल्द ही लाइव होने वाला है",
   heroTitle1: "जल्द पहुंच पाएं",
   heroTitle2: "AI के भविष्य की",
   heroAccent: "ग्रोथ",
-  heroSub: "एक मल्टी-एजेंट ग्रोथ ऑपरेटिंग सिस्टम जो कैम्पेन्स को रिसर्च, क्रिएट, लॉन्च और ऑप्टिमाइज़ करता है — सब एक ही जगह पर।",
+  heroSub:
+    "एक मल्टी-एजेंट ग्रोथ ऑपरेटिंग सिस्टम जो कैम्पेन्स को रिसर्च, क्रिएट, लॉन्च और ऑप्टिमाइज़ करता है — सब एक ही जगह पर।",
   joinedBy: "जुड़ें",
   joinedSuffix: "SaaS और AI फाउंडर्स के साथ",
   emailPlaceholder: "आपका ईमेल",
@@ -170,7 +182,8 @@ const hi: Record<TranslationKey, string> = {
   agentStack: "एजेंट स्टैक",
   agentTitle1: "एक प्लेटफ़ॉर्म।",
   agentTitle2: "छह विशेषज्ञ।",
-  agentSub: "हर एजेंट अपने डोमेन का मालिक है और संदर्भ साझा करता है — रिसर्च, क्रिएटिव, ऐड्स, SEO और एनालिटिक्स एक टीम की तरह काम करते हैं।",
+  agentSub:
+    "हर एजेंट अपने डोमेन का मालिक है और संदर्भ साझा करता है — रिसर्च, क्रिएटिव, ऐड्स, SEO और एनालिटिक्स एक टीम की तरह काम करते हैं।",
   aResearchT: "रिसर्च एजेंट",
   aResearchD: "बाज़ार, प्रतिस्पर्धियों और ऑडियंस को रियल-टाइम में स्कैन करता है।",
   aCreativeT: "क्रिएटिव एजेंट",
@@ -186,8 +199,10 @@ const hi: Record<TranslationKey, string> = {
 
   missionTag: "मिशन",
   missionTitle: "AI-संचालित ग्रोथ का नया युग",
-  missionP1: "Pluto AI आपके वर्कफ़्लो के केंद्र में एजेंट्स की एक समन्वित टीम रखता है — दोहराव वाले काम ऑटोमेट करने, तुरंत इनसाइट्स पाने और सोच की गति से कैम्पेन्स चलाने के लिए।",
-  missionP2: "तेज़ निर्णय और रिसर्च, कंटेंट, ऐड्स और एनालिटिक्स के बीच निर्बाध एकीकरण के साथ, आप अपने व्यवसाय को बिना सीमा के बढ़ाते हैं।",
+  missionP1:
+    "Pluto AI आपके वर्कफ़्लो के केंद्र में एजेंट्स की एक समन्वित टीम रखता है — दोहराव वाले काम ऑटोमेट करने, तुरंत इनसाइट्स पाने और सोच की गति से कैम्पेन्स चलाने के लिए।",
+  missionP2:
+    "तेज़ निर्णय और रिसर्च, कंटेंट, ऐड्स और एनालिटिक्स के बीच निर्बाध एकीकरण के साथ, आप अपने व्यवसाय को बिना सीमा के बढ़ाते हैं।",
   launchDate: "लॉन्च तिथि:",
   launchDateV: "नवंबर 2026",
   keyBenefit: "मुख्य लाभ:",
@@ -207,7 +222,8 @@ const hi: Record<TranslationKey, string> = {
   teamTag: "टीम",
   teamTitle1: "पाँच ऑपरेटर बना रहे हैं",
   teamTitle2: "Pluto AI",
-  teamSub: "AI रिसर्च, डिज़ाइन और ग्रोथ से एक छोटी, सीनियर टीम — वह OS तैयार कर रही है जो हम हमेशा चाहते थे।",
+  teamSub:
+    "AI रिसर्च, डिज़ाइन और ग्रोथ से एक छोटी, सीनियर टीम — वह OS तैयार कर रही है जो हम हमेशा चाहते थे।",
 
   ctaTitle: "Pluto खुलते ही पहले बनें।",
   ctaSub: "फाउंडिंग मेंबर्स को अर्ली एक्सेस, लाइफटाइम प्राइसिंग और टीम से सीधा संपर्क मिलता है।",
