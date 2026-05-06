@@ -46,9 +46,9 @@ function Index() {
   const team = [
     { name: "Sripadh Sujith", role: "Founder & CEO", img: team1 },
     { name: "Edouard Cheev", role: "Co-founder & CTO", img: team2 },
-    { name: "Subrahmanyam csm", role: "Head of Design", img: team3 },
+    { name: "Subrahmanyam csm", role: "Head of Growth", img: team5 },
     { name: "Ginga", role: "Lead AI Researcher", img: team4 },
-    { name: "Ruzindana Tehila", role: "Head of Growth", img: team5 },
+    { name: "Ruzindana Tehila", role: "Head of Design", img: team3 },
   ];
 
   const agents = [
