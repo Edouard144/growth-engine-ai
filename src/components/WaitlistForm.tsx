@@ -4,7 +4,7 @@ import { ArrowRight, Check, Mail, Loader2 } from "lucide-react";
 import { useApp } from "@/contexts/AppContext";
 import { useEffect } from "react";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "/_/backend";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://pluto-ai-waitlist.onrender.com";
 
 export function WaitlistForm() {
   const { t, joinedWaitlist, setJoinedWaitlist } = useApp();
