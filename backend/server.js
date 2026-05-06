@@ -9,7 +9,12 @@ dotenv.config();
 const { Pool } = pkg;
 const app = express();
 app.use(express.json());
-app.use(cors());
+const corsOptions = {
+  origin: ['http://localhost:8081', 'https://plutoai-waitlist.onrender.com'],
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type']
+};
+app.use(cors(corsOptions));
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL
