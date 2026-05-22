@@ -5,10 +5,10 @@ dotenv.config();
 
 const { Pool } = pkg;
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL
+  connectionString: process.env.DATABASE_URL,
 });
 
- (async () => {
+(async () => {
   try {
     await pool.query(`
       ALTER TABLE waitlist_users

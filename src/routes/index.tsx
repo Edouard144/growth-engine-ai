@@ -35,9 +35,6 @@ import { useApp } from "@/contexts/AppContext";
 
 export const Route = createFileRoute("/")({
   component: Index,
-  validateSearch: (search: Record<string, unknown>) => ({
-    verified: (search.verified as string) || undefined,
-  }),
 });
 
 function Index() {

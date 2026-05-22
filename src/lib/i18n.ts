@@ -83,7 +83,7 @@ const fr: Record<TranslationKey, string> = {
   navMission: "Mission",
   navTeam: "Équipe",
   whitepaper: "Livre blanc v1.0",
-  beta: "La bêta arrive bientôt",
+  beta: "Pluto AI sera bientôt opérationnel",
   heroTitle1: "Accès anticipé à",
   heroTitle2: "l'avenir de l'IA",
   heroAccent: "Croissance",
