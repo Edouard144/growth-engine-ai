@@ -8,7 +8,28 @@ dotenv.config();
 const { Pool } = pkg;
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: process.env.FRONTEND_URL }));
+
+// CORS: allow Vercel production domain, preview deploys, and localhost for dev
+const allowedOrigins = [
+  process.env.FRONTEND_URL, // e.g. https://your-app.vercel.app
+  "http://localhost:5173",  // Vite dev server
+  "http://localhost:4173",  // Vite preview
+].filter(Boolean);
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow requests with no origin (mobile apps, curl, health checks)
+      if (!origin) return callback(null, true);
+      // Allow exact matches
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+      // Allow all Vercel preview deployments for this project
+      if (origin.endsWith(".vercel.app")) return callback(null, true);
+      callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+  })
+);
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
