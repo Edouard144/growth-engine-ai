@@ -2,7 +2,7 @@ import { useState, type FormEvent } from "react";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { useApp } from "@/contexts/AppContext";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || (typeof window !== 'undefined' && window.location.hostname === 'localhost' ? 'http://localhost:5002' : 'https://pluto-ai-waitlist.onrender.com');
+const API_BASE = import.meta.env.VITE_API_BASE_URL || (typeof window !== 'undefined' && window.location.hostname === 'localhost' ? 'http://localhost:5002' : 'https://plutoaio-waitlist-backend.onrender.com');
 
 export function WaitlistForm() {
   const { t, joinedWaitlist, setJoinedWaitlist } = useApp();
