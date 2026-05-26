@@ -28,7 +28,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
       localStorage.getItem("pluto-lang")) as Lang | null;
     const storedJoined =
       (typeof window !== "undefined" && localStorage.getItem("pluto-joined")) === "true";
-    if (storedTheme === "dark" || storedTheme === "light") setThemeState(storedTheme);
+    if (storedTheme === "dark" || storedTheme === "light") {
+      setThemeState(storedTheme);
+    } else if (typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setThemeState("dark");
+    }
     if (storedLang === "en" || storedLang === "fr" || storedLang === "hi") setLangState(storedLang);
     setJoinedWaitlistState(storedJoined);
   }, []);

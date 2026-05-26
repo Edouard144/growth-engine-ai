@@ -95,11 +95,7 @@
     oklch(0.99 0.003 240 / 0.6),
     oklch(0.985 0.003 80 / 0.95) 70%
   );
-  --gradient-page-dark: radial-gradient(
-    ellipse 90% 60% at 50% 0%,
-    oklch(0.3 0.05 240 / 0.4),
-    oklch(0.15 0.04 264 / 0.8) 70%
-  );
+  --gradient-page-dark: none;
 
   --font-serif: "Instrument Serif", "Cormorant Garamond", ui-serif, Georgia, serif;
   --destructive: oklch(0.577 0.245 27.325);
@@ -136,39 +132,102 @@
   }
 }
 
+/* ─────────────────────────────────────────────
+   DARK MODE — Deep-space premium palette
+   ───────────────────────────────────────────── */
 .dark {
-  --background: oklch(0.18 0.04 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  /* Core surfaces — rich layered depth */
+  --background: oklch(0.13 0.02 270);
+  --foreground: oklch(0.95 0.01 250);
+
+  /* Cards get a subtle uplift from the background */
+  --card: oklch(0.17 0.025 268);
+  --card-foreground: oklch(0.95 0.01 250);
+  --popover: oklch(0.17 0.025 268);
+  --popover-foreground: oklch(0.95 0.01 250);
+
+  /* Primary — luminous soft violet-white for buttons & CTAs */
+  --primary: oklch(0.92 0.02 270);
+  --primary-foreground: oklch(0.13 0.02 270);
+
+  /* Secondary — subtle elevated surface */
+  --secondary: oklch(0.22 0.03 268);
+  --secondary-foreground: oklch(0.92 0.01 250);
+
+  /* Muted — deemphasised elements */
+  --muted: oklch(0.22 0.025 268);
+  --muted-foreground: oklch(0.65 0.025 260);
+
+  /* Accent */
+  --accent: oklch(0.22 0.03 268);
+  --accent-foreground: oklch(0.92 0.01 250);
+
+  /* Success — vivid emerald glow */
+  --success: oklch(0.72 0.19 155);
+
+  /* Borders — subtle luminous edges */
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.65 0.08 270);
+
+  /* Destructive */
+  --destructive: oklch(0.68 0.2 25);
+  --destructive-foreground: oklch(0.95 0.01 250);
+
+  /* Charts */
+  --chart-1: oklch(0.65 0.2 270);
+  --chart-2: oklch(0.7 0.17 162);
+  --chart-3: oklch(0.75 0.18 70);
+  --chart-4: oklch(0.65 0.22 310);
+  --chart-5: oklch(0.65 0.22 20);
+
+  /* Sidebar */
+  --sidebar: oklch(0.15 0.025 268);
+  --sidebar-foreground: oklch(0.95 0.01 250);
+  --sidebar-primary: oklch(0.65 0.2 270);
+  --sidebar-primary-foreground: oklch(0.95 0.01 250);
+  --sidebar-accent: oklch(0.22 0.03 268);
+  --sidebar-accent-foreground: oklch(0.92 0.01 250);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  --sidebar-ring: oklch(0.55 0.06 270);
+
+  /* ── DARK SHADOWS → replaced with luminous glows ── */
+  --shadow-float:
+    0 20px 60px -12px oklch(0 0 0 / 0.5),
+    0 0 40px -10px oklch(0.55 0.15 270 / 0.12);
+  --shadow-card:
+    0 1px 2px oklch(0 0 0 / 0.3),
+    0 0 20px -5px oklch(0.5 0.12 270 / 0.06);
+  --shadow-pill:
+    0 10px 30px -8px oklch(0 0 0 / 0.5),
+    0 0 20px -5px oklch(0.6 0.15 270 / 0.15);
+  --shadow-card-lg:
+    0 2px 6px oklch(0 0 0 / 0.35),
+    0 24px 48px -16px oklch(0 0 0 / 0.4),
+    0 0 30px -8px oklch(0.55 0.14 270 / 0.08);
+  --shadow-icon:
+    0 12px 24px -8px oklch(0 0 0 / 0.6),
+    0 0 0 6px oklch(0.17 0.025 268 / 0.9),
+    0 0 24px -4px oklch(0.6 0.18 270 / 0.2);
+
+  /* ── DARK GRADIENTS — aurora-inspired ── */
+  --gradient-page-dark:
+    radial-gradient(
+      ellipse 100% 50% at 50% -5%,
+      oklch(0.25 0.1 270 / 0.5),
+      oklch(0.18 0.06 280 / 0.3) 40%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 70% 10%,
+      oklch(0.3 0.12 300 / 0.15),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 60% 40% at 30% 10%,
+      oklch(0.28 0.1 240 / 0.15),
+      transparent 70%
+    );
 }
 
 @layer base {
@@ -180,4 +239,68 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
   }
+}
+
+/* ─────────────────────────────────────────────
+   DARK-MODE ENHANCEMENTS
+   Glassmorphism, glows, and polish
+   ───────────────────────────────────────────── */
+
+/* Card glassmorphism — elevated surfaces with luminous border */
+.dark .rounded-3xl[class*="border"][class*="bg-card"] {
+  border-color: oklch(1 0 0 / 8%);
+  background: oklch(0.17 0.025 268 / 80%);
+}
+
+/* Waitlist form input area — glassmorphic dark treatment */
+.dark .rounded-full[class*="border"][class*="bg-card"] {
+  border-color: oklch(1 0 0 / 10%);
+  background: oklch(0.17 0.025 268 / 70%);
+}
+
+/* Pill badges — subtle luminous badges */
+.dark .rounded-full[class*="border"][class*="bg-card/70"] {
+  background: oklch(0.2 0.03 268 / 70%);
+  border-color: oklch(1 0 0 / 10%);
+}
+
+/* The floating icon circles — subtle rim glow in dark */
+.dark .rounded-full[class*="bg-foreground"] {
+  background: oklch(0.92 0.02 270);
+  color: oklch(0.13 0.02 270);
+  box-shadow:
+    0 12px 24px -8px oklch(0 0 0 / 0.5),
+    0 0 0 6px oklch(0.17 0.025 268 / 0.9),
+    0 0 20px oklch(0.6 0.15 270 / 0.2);
+}
+
+/* FloatingIcon ring-background in dark */
+.dark .ring-background {
+  --tw-ring-color: oklch(0.13 0.02 270);
+}
+
+/* Team member cards — hover glow */
+.dark .group[class*="rounded-3xl"][class*="hover"]:hover {
+  box-shadow:
+    0 8px 30px -8px oklch(0 0 0 / 0.4),
+    0 0 20px -5px oklch(0.6 0.15 270 / 0.12);
+}
+
+/* Primary button glow on hover */
+.dark .bg-primary:hover {
+  box-shadow: 0 0 20px oklch(0.7 0.12 270 / 0.3);
+}
+
+/* Success badge glow */
+.dark .bg-success {
+  box-shadow: 0 0 16px oklch(0.72 0.19 155 / 0.3);
+}
+
+/* Smoother transitions for dark mode toggling */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

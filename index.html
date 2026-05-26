@@ -8,6 +8,10 @@
     <meta name="description" content="Join the Pluto AI waitlist. A multi-agent growth operating system that researches, creates, launches, and optimizes campaigns for your business." />
   </head>
   <body>
+    <script>
+      // Prevent FOUC: apply theme before first paint
+      (function(){try{var t=localStorage.getItem('pluto-theme');if(t==='dark'||(t==null&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.classList.add('dark')}catch(e){}})();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

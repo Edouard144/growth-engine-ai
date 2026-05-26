@@ -8,13 +8,17 @@ dotenv.config();
 const { Pool } = pkg;
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: process.env.FRONTEND_URL }));
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  connectionTimeoutMillis: 5000,
+  connectionTimeoutMillis: 20000,
+  idleTimeoutMillis: 30000,
+  max: 3,
+  keepAlive: true,
   ssl: { rejectUnauthorized: false },
 });
+pool.on('error', (err) => console.error('Unexpected idle client error', err));
 
 // Join waitlist endpoint
 app.post("/join", async (req, res) => {

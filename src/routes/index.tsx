@@ -73,32 +73,34 @@ function Index() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-background">
-      {/* Hexagonal molecular backdrop */}
+      {/* Hexagonal molecular backdrop — fixed in dark mode for persistent ambient texture */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[1400px] bg-cover bg-center opacity-60 mix-blend-multiply dark:opacity-30 dark:mix-blend-screen"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1400px] bg-cover bg-center opacity-50 mix-blend-multiply dark:fixed dark:inset-0 dark:h-full dark:opacity-[0.07] dark:mix-blend-lighten"
         style={{ backgroundImage: `url(${hexBg})` }}
       />
-      {/* Pluto AI Logo Backdrop */}
+      {/* Pluto AI Logo Backdrop — fixed in dark mode so it stays as a watermark */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 flex h-[600px] items-center justify-center opacity-20 mix-blend-multiply dark:opacity-10 dark:mix-blend-screen"
+        className="pointer-events-none absolute inset-x-0 top-0 flex h-[600px] items-center justify-center opacity-20 mix-blend-multiply dark:fixed dark:inset-0 dark:h-full dark:opacity-[0.06] dark:mix-blend-lighten"
       >
         <img src={logo} alt="" className="h-96 w-auto" />
       </div>
+      {/* Light mode gradient */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[1100px]"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1100px] dark:hidden"
         style={{ background: "var(--gradient-page)" }}
       />
+      {/* Dark mode aurora gradient — fixed for immersive ambient glow */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[1100px] dark:block hidden"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[1100px] hidden dark:fixed dark:inset-0 dark:h-full dark:block"
         style={{ background: "var(--gradient-page-dark)" }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-[1100px] h-[400px] bg-gradient-to-b from-transparent to-background"
+        className="pointer-events-none absolute inset-x-0 top-[1100px] h-[400px] bg-gradient-to-b from-transparent to-background dark:hidden"
       />
 
       {/* Top nav */}
